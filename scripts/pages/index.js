@@ -1,34 +1,18 @@
 
    async function getPhotographers() {
-    
+
+    //fonction fetch pour aller chercher les datas du .json
     fetch('data/photographers.json')
     .then(function(response){
         return response.json();
     })
     .then(function(data){
-        console.log(data);
+        //console.log(data);
     })
  
-    // Penser à remplacer par les données récupérées dans le json
+    // modification des données des photographes
     const photographers = [
-       /* {
-            "name": "Ma data test",
-            "id": 1,
-            "city": "Paris",
-            "country": "France",
-            "tagline": "Ceci est ma data test",
-            "price": 400,
-            "portrait": "account.png"
-        },
-        {
-            "name": "Autre data test",
-            "id": 2,
-            "city": "Londres",
-            "country": "UK",
-            "tagline": "Ceci est ma data test 2",
-            "price": 500,
-            "portrait": "account.png"
-        },*/
+     
         {
 			"name": "Mimi Keel",
 			"id": 243,
@@ -84,10 +68,8 @@
 			"portrait": "MarcelNikolic.jpg"
 		}
     ]
-    // et bien retourner le tableau photographers seulement une fois
-   return {
-      //photographers: [[0],[1],[2],[3],[4],[5]]})
-      photographers}
+    // on retourne le tableau qui contient les photographes
+   return {photographers}
 }
 
 async function displayData(photographers) {
