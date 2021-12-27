@@ -19,6 +19,20 @@ h1 {
     margin-right: 100px;
 }
 
+/*ajout de style pour lien qui comprend l'image et le h2 avec bordure de couleur pour le focus*/
+a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;  
+}
+
+a:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;             
+}
+/**********************************************/
+
 p {
     color: #901C1C;
     margin-top: 0px;
@@ -38,7 +52,7 @@ p {
 /**********************************************/
 .logo {
     height: 50px;
-    margin-left: 100px;
+    margin-left: 100px;  
 }
 
 .photographer_section {
@@ -54,6 +68,7 @@ p {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100%;
 }
 
 .photographer_section article h2 {
@@ -67,4 +82,8 @@ p {
     object-fit: cover;
     height: 200px;
     width: 200px;
+}
+
+.photographer_section article img :focus {      
+    cursor: pointer; 
 }

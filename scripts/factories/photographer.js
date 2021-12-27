@@ -1,7 +1,7 @@
 function photographerFactory(data) {
     
     const { name, id, city, country, tagline, price, portrait, } = data;
-    console.log(data);
+    //console.log(data);
 
     //récuperation du chemin dossier des photographes
     const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
@@ -10,37 +10,48 @@ function photographerFactory(data) {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture );
-        //ajout attribut alt pour le nom des photographes dans les images  
-        img.setAttribute("alt", name);
-        console.log(img)
+        img.setAttribute('role', 'img' );
+        img.setAttribute('alt',' ');
+
+        //titre du photographe
         const h2 = document.createElement( 'h2' );
         h2.textContent = name;
+        h2.setAttribute('aria-label',"profil de " + name);
 
-        //rajout d'un element p qui contient la ville et le pays pour le descriptif du photographe
+        //création des liens et redirection vers profil des photographes avec leur id data
+        const lienPhotographe = document.createElement('a');
+        lienPhotographe.setAttribute('href', `photographer.html?id=${id}`); 
+        lienPhotographe.setAttribute('aria-label',"profil de " + name);
+        //console.log(lienPhotographe);
+        
+        //paragraphe qui contient la ville et le pays pour le descriptif du photographe
         const villePays = document.createElement('p');
         villePays.textContent = city + [", "]+ country;
-        console.log(villePays);
-
-        //rajout de la phrase tagline avec un paragraphe et un id 
-        const phrasePotographe = document.createElement('p')
-        phrasePotographe.id = "phrase_photographe";
-        phrasePotographe.textContent = tagline;
-        console.log(phrasePotographe);
-
-        //rajout tarif avec un paragraphe et son id
-        const tarif = document.createElement('p')
+        villePays.setAttribute('aria-label',"ville et pays");
+     
+        //phrase tagline du photographe avec paragraphe et son id 
+        const phrasePhotographe = document.createElement('p');
+        phrasePhotographe.id = "phrase_photographe";
+        phrasePhotographe.textContent = tagline;
+        phrasePhotographe.setAttribute('aria-label',"slogan du photographe");
+     
+        //tarif photographe avec un id et son prix
+        const tarif = document.createElement('p');
         tarif.id = "tarif_photographe";
         tarif.textContent = price + ["€"+ "/" +"jour" ];
-        console.log(tarif);
+        tarif.setAttribute('aria-label',"tarif du photographe");
         
-        article.appendChild(img);
-        article.appendChild(h2);
         //implémentation des éléments dans l'article
+        article.appendChild(lienPhotographe);
         article.appendChild(villePays);
-        article.appendChild(phrasePotographe);
+        article.appendChild(phrasePhotographe);
         article.appendChild(tarif);
+        //implémentation du lien (a) avec image et titre du photographe
+        lienPhotographe.appendChild(img);
+        lienPhotographe.appendChild(h2);
 
         return (article);
     }
-    return { getUserCardDOM }
+    return { getUserCardDOM}
 }
+
