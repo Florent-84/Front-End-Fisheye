@@ -1,57 +1,49 @@
-function photographerFactory(data) {
-    
-    const { name, id, city, country, tagline, price, portrait, } = data;
-    //console.log(data);
 
-    //récuperation du chemin dossier des photographes
-    const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
-    
-    function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture );
-        img.setAttribute('role', 'img' );
-        img.setAttribute('alt',' ');
+class Photographer {
+  constructor (id) {
+    this.id = id.id
+    this.name = id.name
+    this.city = id.city
+    this.country = id.country
+    this.tagline = id.tagline
+    this.price = id.price
+    this.portrait = id.portrait
+  }
 
-        //titre du photographe
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        h2.setAttribute('aria-label',"profil de " + name);
+  photographerFactory() {
 
-        //création des liens et redirection vers profil des photographes avec leur id data
-        const lienPhotographe = document.createElement('a');
-        lienPhotographe.setAttribute('href', `photographer.html?id=${id}`); 
-        lienPhotographe.setAttribute('aria-label',"profil de " + name);
-        //console.log(lienPhotographe);
-        
-        //paragraphe qui contient la ville et le pays pour le descriptif du photographe
-        const villePays = document.createElement('p');
-        villePays.textContent = city + [", "]+ country;
-        villePays.setAttribute('aria-label',"ville et pays");
-     
-        //phrase tagline du photographe avec paragraphe et son id 
-        const phrasePhotographe = document.createElement('p');
-        phrasePhotographe.id = "phrase_photographe";
-        phrasePhotographe.textContent = tagline;
-        phrasePhotographe.setAttribute('aria-label',"slogan du photographe");
-     
-        //tarif photographe avec un id et son prix
-        const tarif = document.createElement('p');
-        tarif.id = "tarif_photographe";
-        tarif.textContent = price + ["€"+ "/" +"jour" ];
-        tarif.setAttribute('aria-label',"tarif du photographe");
-        
-        //implémentation des éléments dans l'article
-        article.appendChild(lienPhotographe);
-        article.appendChild(villePays);
-        article.appendChild(phrasePhotographe);
-        article.appendChild(tarif);
-        //implémentation du lien (a) avec image et titre du photographe
-        lienPhotographe.appendChild(img);
-        lienPhotographe.appendChild(h2);
-
-        return (article);
-    }
-    return { getUserCardDOM}
+      const picture =  (`assets/photographers/Photographers ID Photos/${this.portrait}`);
+      //création DOM
+      const article = document.createElement( 'article' );
+      const img = document.createElement( 'img' );
+      const h2 = document.createElement( 'h2' );
+      const villePays = document.createElement('p');
+      const phrasePhotographe = document.createElement('p');
+      const tarif = document.createElement('p');
+      const lienPhotographe = document.createElement('a');
+      
+      img.setAttribute("src",picture);
+      img.setAttribute('role', 'img' );
+      img.setAttribute('alt',"photo de " + this.name);
+   
+      h2.textContent = this.name;
+      villePays.textContent = this.city + [", "]+ this.country;
+      phrasePhotographe.textContent = this.tagline;
+      phrasePhotographe.className = "phrase_photographe";
+      tarif.textContent = this.price + ["€"+ "/" +"jour" ];
+      tarif.className = "tarif_photographe";
+      lienPhotographe.href = `photographer.html?id=${this.id}`;
+      lienPhotographe.setAttribute('aria-label',"profil de " + this.name);
+      //lienPhotographe.setAttribute("tabindex",tabIndex);
+      
+      //implémentation des éléments dans l'article
+      article.appendChild(lienPhotographe);
+      article.appendChild(villePays);
+      article.appendChild(phrasePhotographe);
+      article.appendChild(tarif);
+      lienPhotographe.appendChild(img);
+      lienPhotographe.appendChild(h2);
+         
+      return (article);
+  }
 }
-

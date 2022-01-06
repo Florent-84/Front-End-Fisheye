@@ -1,8 +1,8 @@
 
-   async function getPhotographers() {
+async function getPhotographers() {
 
     //fonction fetch pour aller chercher les datas du .json
-    fetch('data/photographers.json')
+    fetch("data/photographers.json")
     .then(function(response){
         return response.json();
     })
@@ -66,7 +66,7 @@
 			"tagline": "Toujours à la recherche de LA photo",
 			"price": 300,
 			"portrait": "MarcelNikolic.jpg"
-		}
+		},
     ]
     // on retourne le tableau qui contient les photographes
    return {photographers}
@@ -74,18 +74,26 @@
 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
-
+	
+	//let tabIndex  = 2;
     photographers.forEach((photographer) => {
-        const photographerModel = photographerFactory(photographer);
-        const userCardDOM = photographerModel.getUserCardDOM();
+		const ClassPhotographer = new Photographer(photographer);
+        const userCardDOM = ClassPhotographer.photographerFactory(ClassPhotographer);
         photographersSection.appendChild(userCardDOM);
+		//tabIndex = tabIndex + 1;
     });
 };
 
 async function init() {
     // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
+    const { photographers} = await getPhotographers();
     displayData(photographers);
 };
 
 init();
+
+
+
+
+
+		
