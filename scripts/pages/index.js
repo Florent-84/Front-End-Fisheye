@@ -2,98 +2,57 @@
 async function getPhotographers() {
 
     //fonction fetch pour aller chercher les datas du .json
-    fetch("data/photographers.json")
+    return fetch('../../data/photographers.json')
     .then(function(response){
         return response.json();
     })
     .then(function(data){
-        //console.log(data);
+        return(data);
     })
  
-    // modification des données des photographes
-    const photographers = [
-     
-        {
-			"name": "Mimi Keel",
-			"id": 243,
-			"city": "London",
-			"country": "UK",
-			"tagline": "Voir le beau dans le quotidien",
-			"price": 400,
-			"portrait": "MimiKeel.jpg"
-		},
-		{
-			"name": "Ellie-Rose Wilkens",
-			"id": 930,
-			"city": "Paris",
-			"country": "France",
-			"tagline": "Capturer des compositions complexes",
-			"price": 250,
-			"portrait": "EllieRoseWilkens.jpg"
-		},
-		{
-			"name": "Tracy Galindo",
-			"id": 82,
-			"city": "Montreal",
-			"country": "Canada",
-			"tagline": "Photographe freelance",
-			"price": 500,
-			"portrait": "TracyGalindo.jpg"
-		},
-		{
-			"name": "Nabeel Bradford",
-			"id": 527,
-			"city": "Mexico City",
-			"country": "Mexico",
-			"tagline": "Toujours aller de l'avant",
-			"price": 350,
-			"portrait": "NabeelBradford.jpg"
-		},
-		{
-			"name": "Rhode Dubois",
-			"id": 925,
-			"city": "Barcelona",
-			"country": "Spain",
-			"tagline": "Je crée des souvenirs",
-			"price": 275,
-			"portrait": "RhodeDubois.jpg"
-		},
-		{
-			"name": "Marcel Nikolic",
-			"id": 195,
-			"city": "Berlin",
-			"country": "Germany",
-			"tagline": "Toujours à la recherche de LA photo",
-			"price": 300,
-			"portrait": "MarcelNikolic.jpg"
-		},
-    ]
-    // on retourne le tableau qui contient les photographes
-   return {photographers}
 }
 
-async function displayData(photographers) {
+async function displayData(photographers, media) {
+    
     const photographersSection = document.querySelector(".photographer_section");
-	
-	//let tabIndex  = 2;
+
+	let params = (new URL(document.location)).searchParams;
+    let idPhotographe = params.get('id');
+    
     photographers.forEach((photographer) => {
-		const ClassPhotographer = new Photographer(photographer);
-        const userCardDOM = ClassPhotographer.photographerFactory(ClassPhotographer);
-        photographersSection.appendChild(userCardDOM);
-		//tabIndex = tabIndex + 1;
+
+		const photographerModel = photographerFactory(photographer);
+    	
+		if (idPhotographe) {
+      
+            if (photographer.id == idPhotographe) {
+                
+	            photographerModel.getPhotographerHeaderDOM();
+                
+                media.forEach((media) => {                       
+
+                    if (idPhotographe == media.photographerId) {   
+
+                        const photographerMedia = mediaFactory(media, photographer);
+                        photographerMedia.getPhotographerMediaDOM();
+                            
+                    }
+                })
+            }
+		
+		} else {
+
+            const userCardDOM = photographerModel.getUserCardDOM();
+            photographersSection.appendChild(userCardDOM);
+            
+		}
     });
 };
 
 async function init() {
     // Récupère les datas des photographes
-    const { photographers} = await getPhotographers();
-    displayData(photographers);
+    const { photographers, media } = await getPhotographers();
+    displayData(photographers, media);
 };
 
 init();
-
-
-
-
-
-		
