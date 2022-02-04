@@ -14,9 +14,19 @@ header {
     height: 90px;
 }
 
+.logo:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;
+}
+
 h1 {
     color: #901C1C;
     margin-right: 100px;
+}
+
+h1:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;    
 }
 
 /*ajout de style pour lien qui comprend l'image et le h2 avec bordure de couleur pour le focus*/
@@ -31,6 +41,7 @@ a:focus {
     outline: 3px solid #db8876; 
     border-radius: 5px;             
 }
+
 /**********************************************/
 
 p {

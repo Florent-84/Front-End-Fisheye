@@ -23,7 +23,7 @@ function mediaFactory(data, photographer) {
        
     mediaSection
         .innerHTML += `<article class="article_media">                                                                   
-                            <img class= "image_photographer" src="${imagePhotographer}" alt=" ">
+                            <img class= "image_photographer" src="${imagePhotographer}" alt="${title}, image prise par ${name}" tabindex="5">
                                 <div class="conteneur_title_likes">
                                     <p>${title}</p>
                                       <div class="like_numbers">
@@ -32,7 +32,7 @@ function mediaFactory(data, photographer) {
                                       </div>                                     
                                 </div>
                        </article>
-                       <div class="counter_like">
+                       <div class="counter_like" tabindex="6">
                             <div class="all_heart_diplay">${999999}
                                 <img class ="heart" src="assets/icons/heart-solid.svg" alt="likes">
                             </div>
@@ -46,7 +46,7 @@ function mediaFactory(data, photographer) {
     mediaSection
         .innerHTML += `<article class="article_media">
                             <video class="video_photographer" controls >  
-                                <source src="${videoPhotographer}" type="video/mp4" alt="${name}">
+                                <source src="${videoPhotographer}" type="video/mp4" alt="${videoTitle}, vidéo réalisé par ${name}">
                             </video>
                                 <div class="conteneur_title_likes">
                                     <p>${videoTitle}</p>

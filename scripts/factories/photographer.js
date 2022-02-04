@@ -1,4 +1,4 @@
-                                                    
+                                            
 function photographerFactory(data) {
   
   const { name, id, city, country, tagline, price, portrait } = data;
@@ -46,23 +46,33 @@ function photographerFactory(data) {
     const imgProfil         = document.createElement('img');
     const villePays         = document.createElement('p');
     const phrasePhotographe = document.createElement('p');
+    const div               = document.createElement('div');
 
+    div.className                 = ('contenair-villepaysphrase');
     h1.textContent                = (name);
     villePays.textContent         = city + [', ']+ country;
     phrasePhotographe.textContent = tagline;
     phrasePhotographe.className   = ('header-phrase_photographe'); 
-    imgProfil.className = ('photograph-header_img');
+    imgProfil.className           = ('photograph-header_img');
+    h1.setAttribute('tabindex', '2');
     imgProfil.setAttribute('src', picture);
     imgProfil.setAttribute('role', 'img' );
     imgProfil.setAttribute('alt',picture);
 
     photographHeader.appendChild(h1);
+    photographHeader.appendChild(div);
     photographHeader.appendChild(villePays);
     photographHeader.appendChild(phrasePhotographe);
     photographHeader.appendChild(buttonContact);
     photographHeader.appendChild(imgProfil);
-    h1.appendChild(villePays);
-    villePays.appendChild(phrasePhotographe);
+    div.appendChild(villePays);
+    div.appendChild(phrasePhotographe);
+    h1.appendChild(div);
+
+    buttonContact.addEventListener('click',(e) => {
+      displayModal(name);                                                   // appel de la fonction modale du contactForm.js
+      e.preventDefault();   
+    });
 
     return (photographHeader);
   }

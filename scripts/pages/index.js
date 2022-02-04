@@ -22,12 +22,13 @@ async function displayData(photographers, media) {
     photographers.forEach((photographer) => {
 
 		const photographerModel = photographerFactory(photographer);
-    	
+
 		if (idPhotographe) {
       
             if (photographer.id == idPhotographe) {
                 
 	            photographerModel.getPhotographerHeaderDOM();
+                
                 
                 media.forEach((media) => {                       
 
@@ -35,7 +36,7 @@ async function displayData(photographers, media) {
 
                         const photographerMedia = mediaFactory(media, photographer);
                         photographerMedia.getPhotographerMediaDOM();
-                            
+                          
                     }
                 })
             }
@@ -44,7 +45,6 @@ async function displayData(photographers, media) {
 
             const userCardDOM = photographerModel.getUserCardDOM();
             photographersSection.appendChild(userCardDOM);
-            
 		}
     });
 };
@@ -56,3 +56,4 @@ async function init() {
 };
 
 init();
+

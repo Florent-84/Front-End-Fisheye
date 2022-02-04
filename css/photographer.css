@@ -2,7 +2,7 @@
 #contact_modal {
     display: none;
 }
-
+/************************** le bandeau du phtographe *********************/
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
@@ -11,7 +11,7 @@
     justify-content: space-around;
     align-items: center;
 }
-/* ajout balise image,titre h1*/
+
 .photograph-header_img {
     object-fit: cover;
     border-radius: 50%;
@@ -25,6 +25,23 @@
     font-weight: normal;
     font-size: 64px;
     margin: 0px;
+    height: 80px;
+    margin-bottom: 50px;
+}
+
+.photograph-header h1:focus , .contact_button:focus, #name:focus, .image_photographer:focus, .video_photographer:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;
+}
+
+.button:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;
+}
+    
+.contenair-villepaysphrase {
+    width: 280px;
+    height: 66px;
 }
 
 .header-phrase_photographe {
@@ -36,8 +53,9 @@
 .photograph-header  p {
     font-style: normal;
     font-weight: normal;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 31px;
+    width: 360px;
 }
 
 p .header-phrase_photographe {
@@ -47,9 +65,10 @@ p .header-phrase_photographe {
     line-height: 23px;
 }
 
-/*******************************************/
+/************************ la modale ****************************/
 
 .contact_button {
+    margin-top: 20px;
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -64,14 +83,19 @@ p .header-phrase_photographe {
 
 .modal {
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: #db8876;
     width: 50%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
     padding: 35px;
     margin: auto;
+    position: absolute;
+    top: 1.5%;
+    left: 25%;
+    right: 25%;
 }
 
 .modal header {
@@ -86,7 +110,6 @@ p .header-phrase_photographe {
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
 }
 
 form {
@@ -99,6 +122,8 @@ form {
 form label {
     color: #312E2E;
     font-size: 36px;
+    margin-bottom: 15px;
+    margin-left: 0px;
 }
 
 form div {
@@ -106,16 +131,35 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    margin-bottom: 0px;
+    margin-top: 30px;
 }
 
 form input {
+    font-size: 24px;
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
 }
-/* filtre "trier par" codé en html */
+
+form textarea {
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 100px;
+}
+
+#error-first, #error-last, #error-email, #error-message {
+    font-size: 19px;
+    color: #660000;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    display: none;
+  }
+
+/******************* filtre "trier par"************************/
 label {
     margin: 20px 0px 0px 100px;
     display: flex;
@@ -125,13 +169,19 @@ label {
     line-height: 23px; 
 }
 
-#name {
+select {
+    color: white;
     background: #911C1C;
-    border-radius: 5px; 
+    border-radius: 5px;
     Width: 170px;
     margin-left: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer; 
 }
-/********************************/
+
+/********************** section des medias" *********************/
 #media_section {
     display: flex;
     flex-wrap: wrap;
@@ -149,11 +199,19 @@ label {
     height: 400px;
     object-fit: cover;
 }
+.image_photographer:hover {
+    cursor: pointer;
+}
 
 .video_photographer {
     border-radius: 5px;
     width: 430px;
     height: 400px;
+    object-fit: cover;
+}
+
+.video_photographer:hover {
+    cursor: pointer;
 }
 
 .conteneur_title_likes {
@@ -179,6 +237,10 @@ label {
     margin-left: 10px;
 }
 
+.heart_icone:hover {
+    cursor: pointer;
+}
+
 .counter_like {
     display: flex;;
     align-content: center;
@@ -190,6 +252,11 @@ label {
     right: 3%;
     bottom: 0%;
     background: #DB8876;
+    border-radius: 5px;
+}
+
+.counter_like:focus {
+    outline: 3px solid #000000; 
     border-radius: 5px;
 }
 
