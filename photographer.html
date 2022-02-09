@@ -31,7 +31,7 @@
     </main>
     <!---------------------------------------------------- le formulaire de contact--------------------------------------------->
     <div id="contact_modal">
-			<div class="modal" role="formulaire" aria-label="formulaire de contact">
+			<div class="modal" role="dialog" aria-label="formulaire de contact">
 				<header>
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
@@ -55,9 +55,17 @@
 				</form>
 			</div>
 		</div>
+    <!---------------------------------------------------- lightbox ------------------------------------------------------------>
+    <div id="carroussel">
+      <img src="assets/icons/chevron-left-solid.svg"  class="chevron-left" alt="previous image">
+			<div id="carroussel-box" role="dialog" aria-label="image closeup view">   
+			</div>
+      <img src="assets/icons/close2.svg"  id="croix-image" alt="close dialog"/>
+      <img src="assets/icons/chevron-right-solid.svg"  class="chevron-right" alt="next image">  
+		</div>
+    <!-------------------------------------------------------------------------------------------------------------------------->
     <script src="scripts/factories/Photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/pages/index.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>

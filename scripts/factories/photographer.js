@@ -71,7 +71,7 @@ function photographerFactory(data) {
 
     buttonContact.addEventListener('click',(e) => {
       displayModal(name);                                                   // appel de la fonction modale du contactForm.js
-      e.preventDefault();   
+      e.preventDefault();  
     });
 
     return (photographHeader);

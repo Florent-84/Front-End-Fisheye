@@ -11,25 +11,24 @@ function displayModal(photographerName) {
     const lastNameInput      = document.getElementById("nom");
     const emailInput         = document.getElementById("email");
     const messageInput       = document.getElementById("message");
-    const errorFirst         = document.getElementById("error-first");              // les balises d'erreur
+    const errorFirst         = document.getElementById("error-first");                              // les balises d'erreur
     const errorLast          = document.getElementById("error-last");
     const errorMail          = document.getElementById("error-email");
     const errorMessage       = document.getElementById("error-message");
-    const btnSubmit          = document.getElementsByClassName("contact_button");  
-    const regexFirstLast     = /^[A-Za-z]{2,30}$/;                                  // les regex  
+    const btnSubmit          = document.getElementsByClassName("contact_button");    
+    const regexFirstLast     = /^[A-Za-z]{2,30}$/;                                                  // les regex  
     const regexEmail         = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/; 
-    const regexMessage       = /^[a-zA-Z0-9-_.]{2,30}$/;                            // regex message
+    const regexMessage       = /^[a-zA-Z0-9-_.]{2,30}$/;                                            // regex message
 
-
-    modal.style.display                 = "block";                                  // on affiche le formulaire
-    headerLogo[0].style.display         = "none";                                   // on cache le header avec logo
-    headerPhotographer[0].style.display = "none";                                   // on cache le header du photographe 
-    filter[0].style.display             = "none";                                   // on cache le filtre 
-    mediaSection.style.display          = "none";                                   // on cache la section media
+    modal.style.display                 = "block";                                                  // on affiche le formulaire
+    headerLogo[0].style.display         = "none";                                                   // on cache le header avec logo
+    headerPhotographer[0].style.display = "none";                                                   // on cache le header du photographe 
+    filter[0].style.display             = "none";                                                   // on cache le filtre 
+    mediaSection.style.display          = "none";                                                   // on cache la section media
     h2[0].innerHTML                     = `Contactez-moi<br>${photographerName}`;
 
-
-    function resetForm() {                                                          // fonction pour vider toute les erreurs et tous les champs
+    //////////////////////////// fonction pour vider toute les erreurs et tous les champs
+    function resetForm() {                                                          
         firstNameInput.value                = " ";                                                                                            
         lastNameInput.value                 = " ";
         emailInput.value                    = " ";
@@ -39,8 +38,8 @@ function displayModal(photographerName) {
         errorMail.style.display             = "none";
         errorMessage.style.display          = "none";
     }
-
-    function redisplayElements() {                                                  // fonction pour réafficher les éléments et enlever la modale
+    /////////////////////////// fonction pour réafficher les éléments et enlever la modale
+    function redisplayElements() {                                                  
         modal.style.display                 = "none";                                   
         headerLogo[0].style.display         = "block";                                  
         headerLogo[0].style.display         = "flex";
@@ -51,11 +50,11 @@ function displayModal(photographerName) {
         mediaSection.style.display          = "flex";                                                                 
     }
 
+    ////////////////////////////////////////////////////////// vérification des inputs du formulaire au click submit //////////////                                                                      
+    btnSubmit[1].addEventListener('click', validateFirstLast);              
 
-                                                                           
-    btnSubmit[1].addEventListener('click', validateFirstLast);              ////////// vérification des inputs du formulaire au click submit
-
-        function validateFirstLast(e) {                                             // fonction controle du prénom et du nom
+         /////////////////////////////// fonction controle du prénom et du nom
+        function validateFirstLast(e) {                                            
             if (!regexFirstLast.test(firstNameInput.value && lastNameInput.value)) {
                 e.preventDefault();
                 errorFirst.style.display  = "block";
@@ -71,8 +70,8 @@ function displayModal(photographerName) {
         } 
         
     btnSubmit[1].addEventListener('click', validateMail);                           
-    
-        function validateMail(e) {                                                   // fonction controle de l'email 
+        //////////////////////////////// fonction controle de l'email 
+        function validateMail(e) {                                                   
             if (!regexEmail.test(emailInput.value)) {
                 e.preventDefault();
                 errorMail.style.display = "block";
@@ -84,8 +83,8 @@ function displayModal(photographerName) {
         }
 
     btnSubmit[1].addEventListener('click', validateMessage);                        
-
-        function validateMessage(e) {                                                // fonction controle message 
+        //////////////////////////////// fonction controle message
+        function validateMessage(e) {                                                
             if (!regexMessage.test(messageInput.value)) {                          
                 e.preventDefault();
                 errorMessage.style.display = "block";                
@@ -96,8 +95,8 @@ function displayModal(photographerName) {
             }
             
         }
-        
-    btnSubmit[1].addEventListener('click', (e) => {                                  // on réaffiche les éléments quand le formulaire est valide
+    ///////////////////////////////////////////////// on réaffiche les éléments quand le formulaire est valide ///////////////////    
+    btnSubmit[1].addEventListener('click', (e) => {                                  
            
         e.preventDefault();
             if (regexFirstLast.test(firstNameInput.value && lastNameInput.value) && (regexEmail.test(emailInput.value)) && (regexMessage.test(messageInput.value))) {
@@ -107,7 +106,7 @@ function displayModal(photographerName) {
         })
     }
      
-
+//////////////////////////////////////////////////////////////////// fonction fermeture de la modal //////////////////////////////
 function closeModal() {
 
     const modal              = document.getElementById("contact_modal");
@@ -119,12 +118,13 @@ function closeModal() {
     const lastNameInput      = document.getElementById("nom");
     const emailInput         = document.getElementById("email");
     const messageInput       = document.getElementById("message");
-    const errorFirst         = document.getElementById("error-first");              // les balises d'erreur
+    const errorFirst         = document.getElementById("error-first");                      // les balises d'erreur
     const errorLast          = document.getElementById("error-last");
     const errorMail          = document.getElementById("error-email");
     const errorMessage       = document.getElementById("error-message"); 
 
-        function resetForm() {                                                      // fonction pour vider toute les erreurs et tous les champs
+        /////////////////////// fonction pour vider toute les erreurs et tous les champs
+        function resetForm() {                                                      
             firstNameInput.value                = " ";
             lastNameInput.value                 = " ";
             emailInput.value                    = " ";
@@ -135,13 +135,13 @@ function closeModal() {
             errorMessage.style.display          = "none";
         }
 
-    modal.style.display                 = "none";                                    // on cache la modale
-    headerLogo[0].style.display         = "block";                                   // on affiche header avec logo
+    modal.style.display                 = "none";                                           // on cache la modale
+    headerLogo[0].style.display         = "block";                                          // on affiche header avec logo
     headerLogo[0].style.display         = "flex";
-    headerPhotographer[0].style.display = "block";                                   // on affiche le header du photographe 
+    headerPhotographer[0].style.display = "block";                                          // on affiche le header du photographe 
     headerPhotographer[0].style.display = "flex"; 
-    filter[0].style.display             = "block";                                   // on affiche le filtre 
-    mediaSection.style.display          = "block";                                   // on affiche la section media
+    filter[0].style.display             = "block";                                          // on affiche le filtre 
+    mediaSection.style.display          = "block";                                          // on affiche la section media
     mediaSection.style.display          = "flex";
     resetForm();
     
