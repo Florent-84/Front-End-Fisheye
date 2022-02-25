@@ -81,6 +81,10 @@ p .header-phrase_photographe {
     cursor: pointer;
 }
 
+.contact_button:hover {
+    background: #D3573C
+}
+
 .modal {
     border-radius: 5px;
     background-color: #db8876;
@@ -159,6 +163,11 @@ form textarea {
     display: none;
   }
 
+form .contact_button:focus {
+    outline: 3px solid #000000; 
+    border-radius: 5px;
+}
+
 /******************* filtre "trier par"************************/
 label {
     margin: 20px 0px 0px 100px;
@@ -186,7 +195,7 @@ select {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 0px 100px 30px;
+    margin: 0px 100px 100px;
 }
 
 #media_section a {
@@ -223,22 +232,39 @@ select {
 
 .like_numbers {
    display: flex;
-}  
+}
 
-.conteneur_title_likes p {
+.like_numbers:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;
+ }
+
+.media_title {
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
-    line-height: 31px;
+    line-height: 31px;  
 }
 
-.heart_icone {
+.media_title:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;
+}
+
+.counter_like-media {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 31px; 
+}
+
+.heart_icone-media {
     color: #911C1C;
     width: 22px;
     margin-left: 10px;
 }
 
-.heart_icone:hover {
+.heart_icone-media:hover {
     cursor: pointer;
 }
 
@@ -256,13 +282,19 @@ select {
     border-radius: 5px;
 }
 
-.counter_like:focus {
+/* .counter_like:focus {
     outline: 3px solid #000000; 
-    border-radius: 5px;
-}
+    border-radius: 5px; 
+} */
 
 .all_like {
     color: black;
+}
+
+p.total_hearts {
+    color: black;
+    font-size: 24px;
+    margin-top: 6px
 }
 
 .all_heart_diplay {
@@ -270,7 +302,7 @@ select {
     font-size: 24px;
 }
 
-.heart {
+.heart-total {
     width: 23px;
     margin-left: 5px;
     margin-right: 50px;
@@ -298,8 +330,8 @@ select {
 #carroussel-box {
     width: 70%;
     height: 80%;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 
@@ -345,6 +377,7 @@ select {
     height: 42px;
     position: relative;
     left: 20px;
+    cursor: pointer;
 }
 
 .title-lightbox {
