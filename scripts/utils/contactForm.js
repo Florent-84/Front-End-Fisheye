@@ -1,10 +1,12 @@
 
+//////////////////////////////////////////////////////////////////// ouverture du formulaire ////////////////////////////////////////////////////////////////////
+
 function displayModal(photographerName) {
 
     const modal              = document.getElementById("contact_modal");
     const headerLogo         = document.getElementsByTagName("header");                                                
     const headerPhotographer = document.getElementsByClassName("photograph-header");
-    const h2                 = document.getElementsByTagName("h2");                           
+    const h2                 = document.getElementsByTagName("h2");                             
     const filter             = document.getElementsByTagName("label");                                          
     const mediaSection       = document.getElementById("media_section");                               
     const firstNameInput     = document.getElementById("prenom");
@@ -26,8 +28,9 @@ function displayModal(photographerName) {
     filter[0].style.display             = "none";                                                   // on cache le filtre 
     mediaSection.style.display          = "none";                                                   // on cache la section media
     h2[0].innerHTML                     = `Contactez-moi<br>${photographerName}`;
+    h2[0].setAttribute                    ('tabindex', '0');
 
-    //////////////////////////// fonction pour vider toute les erreurs et tous les champs
+    //////////////////////////// fonction pour vider toute les erreurs et tous les champs /////////////////////////////
     function resetForm() {                                                          
         firstNameInput.value                = " ";                                                                                            
         lastNameInput.value                 = " ";
@@ -38,7 +41,7 @@ function displayModal(photographerName) {
         errorMail.style.display             = "none";
         errorMessage.style.display          = "none";
     }
-    /////////////////////////// fonction pour réafficher les éléments et enlever la modale
+    /////////////////////////// fonction pour réafficher les éléments et enlever la modale /////////////////////////////
     function redisplayElements() {                                                  
         modal.style.display                 = "none";                                   
         headerLogo[0].style.display         = "block";                                  
@@ -50,10 +53,10 @@ function displayModal(photographerName) {
         mediaSection.style.display          = "flex";                                                                 
     }
 
-    ////////////////////////////////////////////////////////// vérification des inputs du formulaire au click submit //////////////                                                                      
-    btnSubmit[1].addEventListener('click', validateFirstLast);              
+    //////////////////////////////////////////////////////// vérification des inputs du formulaire au click submit //////////////////////////
 
-         /////////////////////////////// fonction controle du prénom et du nom
+    /////////////////////////////// fonction controle du prénom et du nom ///////                                                                     
+    btnSubmit[1].addEventListener('click', validateFirstLast);                 
         function validateFirstLast(e) {                                            
             if (!regexFirstLast.test(firstNameInput.value && lastNameInput.value)) {
                 e.preventDefault();
@@ -67,10 +70,10 @@ function displayModal(photographerName) {
                 console.log(lastNameInput.value);
                 
             }      
-        } 
-        
+        }
+
+    //////////////////////////////// fonction controle de l'email     
     btnSubmit[1].addEventListener('click', validateMail);                           
-        //////////////////////////////// fonction controle de l'email 
         function validateMail(e) {                                                   
             if (!regexEmail.test(emailInput.value)) {
                 e.preventDefault();
@@ -82,8 +85,8 @@ function displayModal(photographerName) {
             }
         }
 
+    //////////////////////////////// fonction controle message
     btnSubmit[1].addEventListener('click', validateMessage);                        
-        //////////////////////////////// fonction controle message
         function validateMessage(e) {                                                
             if (!regexMessage.test(messageInput.value)) {                          
                 e.preventDefault();
@@ -95,6 +98,7 @@ function displayModal(photographerName) {
             }
             
         }
+        
     ///////////////////////////////////////////////// on réaffiche les éléments quand le formulaire est valide ///////////////////    
     btnSubmit[1].addEventListener('click', (e) => {                                  
            
@@ -106,7 +110,8 @@ function displayModal(photographerName) {
         })
     }
      
-//////////////////////////////////////////////////////////////////// fonction fermeture de la modal //////////////////////////////
+//////////////////////////////////////////////////////////////////// fonction fermeture du formulaire au  ///////////////////////////////////////////////
+//(dans photographer.html  ==>>  onkeydown="if (event.keyCode == 13) fermeture modale sur touche entrée )   
 function closeModal() {
 
     const modal              = document.getElementById("contact_modal");

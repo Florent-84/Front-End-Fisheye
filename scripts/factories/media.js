@@ -1,4 +1,6 @@
 
+///////////////////////////////////////////////////////// factory qui affiche les medias du photographe ///////// ////////////////////////////////////////
+
 function mediaFactory(media, photographer) {
                                                                                                        
     const { id, photographerId, video, videoTitle, likes, title, image, date, price } = media;
@@ -12,28 +14,28 @@ function mediaFactory(media, photographer) {
         
         if (media.image) {
             getPhotographerPhotoDOM();
+            
           
         } else {
              getPhotographerVideoDOM();
         }
 
     }
-       
-     ///////////////////////////////////// affichage des photos  ///////////////////////////
-    function getPhotographerPhotoDOM() {                                      
-        
+                                                       
+    ///////////////////////////////////// affichage des photos  ///////////////////////////
+    function getPhotographerPhotoDOM() {
+            
         const mediaSection      = document.getElementById('media_section');
         const article           = document.createElement('article');
         const img               = document.createElement('img');
-        const linkMedia         = document.createElement('a');
+        const linkOpenMedia     = document.createElement('a');
         const divContenairTitle = document.createElement('div');
         const p1                = document.createElement('p');
         const divLike           = document.createElement('div');
         const p2                = document.createElement('p');
         const imageHeart        = document.createElement('img');
         const imageHeartId      = document.getElementsByClassName('heart_icone-media_' + id);
-        const likesOfPhotoId    = document.getElementsByClassName('counter_like-media_' + id);
-    
+        const likesOfPhotoId    = document.getElementsByClassName('counter_like-media_' + id);    
         article.className           = ('article_media');                      
         img.className               = ('image_photographer');
         img.setAttribute              ('src',imagePhotographer);
@@ -51,61 +53,41 @@ function mediaFactory(media, photographer) {
         imageHeart.setAttribute       ('src', heartIcone);
         imageHeart.setAttribute       ('alt','likes');
         mediaSection.appendChild(article);
-        article.appendChild(linkMedia);
-        article.appendChild(divContenairTitle);
-        
-        linkMedia.appendChild(img);
+        article.appendChild(linkOpenMedia);
+        article.appendChild(divContenairTitle);   
+        linkOpenMedia.appendChild(img);
         divContenairTitle.appendChild(p1);
         divContenairTitle.appendChild(divLike);
         divLike.appendChild(p2);
         divLike.appendChild(imageHeart);
+        const allLikes = document.getElementsByClassName('total_hearts');
 
-        //incrémentation des likes sur médias
-        imageHeartId[0].addEventListener('click', () => {
+        ////////incrémentation des likes au click sur les articles photo et ajout dans l'encart total/////////
+        imageHeartId[0].addEventListener('click', () => {    
+            allLikes[0].textContent++
             likesOfPhotoId[0].textContent++ 
-            console.log(likesOfPhotoId[0].textContent)
+            //console.log(likesOfPhotoId[0].textContent)
         })
 
-        //////////////////////////////////////////////// fonction ouverture lightbox image /////////////////////////// 
-        article.addEventListener ('click',() => {                                              
-            
-            const articleMedia = document.getElementsByClassName('article_media');
-            console.log(articleMedia)
-            const carroussel            = document.getElementById('carroussel');
-            const carrousselBox         = document.getElementById('carroussel-box');
-            const imgPhotographer       = document.createElement('img');
-            const chevronLeft           = document.getElementsByClassName('chevron-left');
-            const chevronRight          = document.getElementsByClassName('chevron-right');
-            const titrePhoto            = document.createElement('div');
-            const imgcroix          = document.getElementById('croix-image');
-            titrePhoto.className            = ('title-lightbox');
-            titrePhoto.textContent          = title;
-            chevronLeft[0].style.display    = 'block';
-            chevronRight[0].style.display   = 'block';   
-            imgPhotographer.className       =('image_lightbox');
-            imgPhotographer.setAttribute     ('src',imagePhotographer);
-            mediaSection.style.display      = 'none';
-            carroussel.style.display        = "flex";
-            carrousselBox.appendChild(imgPhotographer);
-            carrousselBox.appendChild(titrePhoto);
-            
-                ////////// évènement sur chevron droite /////////                                     //faire defiler les autres media au click (à finir)
-                // chevronRight[0].addEventListener('click',() => { 
+        ///////// ouverture lightbox image au click (lightbox.js) ///////////
+        linkOpenMedia.addEventListener('click',() => {
+            openLightBox(media,photographer);                                                    
+        });
 
-                //         console.log('test');                       
-                
-                //  })
-                        ////////////// fermeture lightbox ///////////                                                                                                                                                                     
-                        imgcroix.addEventListener('click',() => { 
-                    
-                            carroussel.style.display      ='none';
-                            mediaSection.style.display    ='flex';
-                            imgPhotographer.style.display ='none';
-                            titrePhoto.style.display      ='none';
-                        
-                        })                   
+        ////////  incrémentation des likes  touche entrée sur les articles image et ajout dans l'encart total   /////////
+        divLike.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                allLikes[0].textContent++
+                likesOfPhotoId[0].textContent++                       
+            }                  
         })
-   
+
+        ///////// ouverture lightbox image touche entrée (lightbox.js) ///////////             
+        linkOpenMedia.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                openLightBox(media,photographer);                       
+            }                  
+        })
     }
     
     ///////////////////////////////////////////////////// affichage des videos /////////////////////////////////////
@@ -113,7 +95,7 @@ function mediaFactory(media, photographer) {
         
         const mediaSection      = document.getElementById('media_section');
         const article           = document.createElement('article');
-        const linkMedia         = document.createElement('a');
+        const linkOpenMedia     = document.createElement('a');       
         const videoPhotograph   = document.createElement('video');
         const sourceVideo       = document.createElement('source');
         const divContenairTitle = document.createElement('div');
@@ -121,10 +103,8 @@ function mediaFactory(media, photographer) {
         const divLike           = document.createElement('div');
         const p2                = document.createElement('p');
         const imageHeart        = document.createElement('img');
-        const imgcroix          = document.getElementById('croix-image');
         const imageHeartId      = document.getElementsByClassName('heart_icone-media_' + id);
-        const likesOfVideoId    = document.getElementsByClassName('counter_like-media_' + id); 
-
+        const likesOfVideoId    = document.getElementsByClassName('counter_like-media_' + id);        
         article.className           = ('article_media');
         videoPhotograph.className   = ('video_photographer');
         videoPhotograph.setAttribute  ('tabindex', '0'); 
@@ -141,57 +121,46 @@ function mediaFactory(media, photographer) {
         p2.className                = ('counter_like-media counter_like-media_' + id);
         imageHeart.setAttribute       ('src', heartIcone);
         imageHeart.className        = ('heart_icone-media heart_icone-media_' + id);
- 
-        videoPhotograph.appendChild(sourceVideo);
-        videoPhotograph.appendChild(linkMedia)
         mediaSection.appendChild(article);
-        article.appendChild(videoPhotograph);
+        article.appendChild(linkOpenMedia);
+        linkOpenMedia.appendChild(videoPhotograph);
+        videoPhotograph.appendChild(sourceVideo);
         article.appendChild(divContenairTitle);
         videoPhotograph.after(divContenairTitle);
         divContenairTitle.appendChild(p1);
         divContenairTitle.appendChild(divLike);
+        article.appendChild(divContenairTitle);
         divLike.appendChild(p2);
         divLike.appendChild(imageHeart);
+        const allLikes = document.getElementsByClassName('total_hearts');
 
-        imageHeartId[0].addEventListener('click', () => {
-            likesOfVideoId[0].textContent++
-            console.log(likesOfVideoId[0].textContent)
-        })
+            ///////// incrémentation des likes au click sur les articles video et ajout dans l'encart total  ///////////
+            imageHeartId[0].addEventListener('click', () => {
+                allLikes[0].textContent++
+                likesOfVideoId[0].textContent++
+                //console.log(likesOfVideoId[0].textContent)
+            })
 
-        /////////////////////////////////////////////////// fonction ouverture lightbox video ////////////////////////// 
-        article.addEventListener ('click',() => {                                      
-       
-            const carroussel            = document.getElementById('carroussel');
-            const carrousselBox         = document.getElementById('carroussel-box');
-            const videoLightbox         = document.createElement('video');
-            const chevronLeft           = document.getElementsByClassName('chevron-left');
-            const chevronRight          = document.getElementsByClassName('chevron-right');
-            const titreVideo            = document.createElement('div');
+            ///////// ouverture lightbox video au click (lightbox.js) ///////////
+            linkOpenMedia.addEventListener('click',() => {
+                openLightBox(media,photographer);                                                    
+            });
 
-            titreVideo.className            = ('title-lightbox');
-            titreVideo.textContent          = videoTitle;
-            chevronLeft[0].style.display    = 'block';
-            chevronRight[0].style.display   = 'block';     
-            videoLightbox.className         =('video_lightbox');
-            videoLightbox.setAttribute       ('src',videoPhotographer);
-            videoLightbox.controls          = 'true';
-            mediaSection.style.display      = 'none';
-            carroussel.style.display        = 'flex';
+            //////// incrémentation des likes touche entrée sur les articles video et ajout dans l'encart total   /////////
+            divLike.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    allLikes[0].textContent++
+                    likesOfVideoId[0].textContent++                       
+                }                  
+            })
+            
+            ///////// ouverture lightbox video touche entrée  (lightbox.js) ///////////             /// !!!!!se répète quand on réappui sur entrée!!!!!!!!
+            linkOpenMedia.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    openLightBox(media,photographer);                   
+                }                  
+            })
 
-            carrousselBox.appendChild(videoLightbox);
-            carrousselBox.appendChild(titreVideo);
-                
-                //////////////////// fermeture lightbox //////////
-                imgcroix.addEventListener('click',() => {                                      
-             
-                    carroussel.style.display    ='none';
-                    mediaSection.style.display  ='flex';
-                    videoLightbox.style.display ='none';
-                    titreVideo.style.display    ='none';
-                
-                })                   
-        }) 
-       
     }
      return { getPhotographerMediaDOM }
 }

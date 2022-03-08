@@ -1,7 +1,7 @@
 
 async function getPhotographers() {
 
-    //fonction fetch pour aller chercher les datas du .json
+    ////////////////////////////////////////////// fetch pour aller chercher les datas du .json //////////////////////
     return fetch('../../data/photographers.json')
     .then(function(response){
         return response.json();
@@ -28,17 +28,18 @@ async function displayData(photographers, media) {
             if (photographer.id == idPhotographe) {
                 
 	            photographerModel.getPhotographerHeaderDOM();
-                
+                let photographerMediaLikes = 0;
+
                 media.forEach((media) => {  
-                    
-                    
+                                       
                     if (idPhotographe == media.photographerId) {   
-                    
+                        photographerMediaLikes += media.likes;
                         const photographerMedia = mediaFactory(media, photographer);
                         photographerMedia.getPhotographerMediaDOM();
              
                     }
                 })
+                photographerModel.getPhotographerMediaTotalLikes(photographerMediaLikes,photographer);
             }
 		
 		} else {
@@ -51,10 +52,17 @@ async function displayData(photographers, media) {
 };
 
 async function init() {
-    // Récupère les datas des photographes
+    ///////////////////////////////////////////////////////////// Récupère les datas des photographes
     const { photographers, media } = await getPhotographers();
     displayData(photographers, media);
 };
 
 init();
+
+
+
+
+
+
+
 
