@@ -146,7 +146,6 @@ p .header-phrase_photographe {
 .modal header h2:focus {
     outline: 3px solid #000000;
     border-radius: 5px;
-    /* height: 155px; */
 }
 
 form {
@@ -201,14 +200,14 @@ form .contact_button:focus {
     border-radius: 5px;
 }
 
-/******************* filtre "trier par"************************/
+/******************* filtre "trier par" ************************/
 label {
     margin: 20px 0px 0px 100px;
     display: flex;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
-    line-height: 23px; 
+    width: 255px;
+    align-items: center; 
 }
 
 select {
@@ -216,13 +215,13 @@ select {
     background: #911C1C;
     border-radius: 5px;
     Width: 170px;
+    height: 55px;
     margin-left: 15px;
     font-size: 18px;
     font-weight: bold;
     padding: 10px;
     cursor: pointer; 
 }
-
 /********************** section des medias" *********************/
 #media_section {
     display: flex;
@@ -245,6 +244,13 @@ select {
     height: 400px;
     object-fit: cover;
     margin-bottom: 5px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 40%);
+}
+
+.image_photographer:hover, .video_photographer:hover {
+    box-shadow: 0 0 14px rgb(0 0 0 / 40%);
+    opacity: 0.7;
+    transition: ease-in-out 0.4s;
 }
 
 .conteneur_title_likes {
@@ -293,16 +299,16 @@ select {
     height: 80%;
 }
 
-
-.image_lightbox, .video_lightbox {
+.lightbox {
     width: 100%;
     height: 100%;
     border-radius: 5px;
     object-fit: cover;
     margin-bottom: 15px;
+    box-shadow: 0 0 8px rgb(0 0 0);
 }
 
-.video_lightbox:focus, .image_lightbox:focus {
+.lightbox:focus {
     outline: 3px solid #db8876; 
     border-radius: 5px;
 }
@@ -315,7 +321,7 @@ select {
 }
 
 #croix-image {
-    right: -60px;
+    right: -50px;
     top: -363px;
     position: relative;
     cursor: pointer;
@@ -331,7 +337,6 @@ select {
 }
 
 .chevron-left {
-    width: 42px;
     height: 42px;
     position: relative;
     right: 50px;
@@ -339,10 +344,9 @@ select {
 }
 
 .chevron-right {
-    width: 42px;
     height: 42px;
     position: relative;
-    left: 20px;
+    left: 5px;
     cursor: pointer;
 }
 

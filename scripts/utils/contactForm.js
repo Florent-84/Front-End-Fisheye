@@ -1,5 +1,5 @@
 
-//////////////////////////////////////////////////////////////////// ouverture du formulaire ////////////////////////////////////////////////////////////////////
+/*********************************** ouverture du formulaire *******************************************/
 
 function displayModal(photographerName) {
 
@@ -30,7 +30,7 @@ function displayModal(photographerName) {
     h2[0].innerHTML                     = `Contactez-moi<br>${photographerName}`;
     h2[0].setAttribute                    ('tabindex', '0');
 
-    //////////////////////////// fonction pour vider toute les erreurs et tous les champs /////////////////////////////
+    /************************** fonction pour vider toute les erreurs et tous les champs *****************************/
     function resetForm() {                                                          
         firstNameInput.value                = " ";                                                                                            
         lastNameInput.value                 = " ";
@@ -41,7 +41,7 @@ function displayModal(photographerName) {
         errorMail.style.display             = "none";
         errorMessage.style.display          = "none";
     }
-    /////////////////////////// fonction pour réafficher les éléments et enlever la modale /////////////////////////////
+    /************************** fonction pour réafficher les éléments et enlever la modale *****************************/
     function redisplayElements() {                                                  
         modal.style.display                 = "none";                                   
         headerLogo[0].style.display         = "block";                                  
@@ -53,9 +53,9 @@ function displayModal(photographerName) {
         mediaSection.style.display          = "flex";                                                                 
     }
 
-    //////////////////////////////////////////////////////// vérification des inputs du formulaire au click submit //////////////////////////
+    /********************************************** vérification des inputs du formulaire au click submit ****************************************/
 
-    /////////////////////////////// fonction controle du prénom et du nom ///////                                                                     
+    /********** fonction controle du prénom et du nom ********/                                                                     
     btnSubmit[1].addEventListener('click', validateFirstLast);                 
         function validateFirstLast(e) {                                            
             if (!regexFirstLast.test(firstNameInput.value && lastNameInput.value)) {
@@ -72,7 +72,7 @@ function displayModal(photographerName) {
             }      
         }
 
-    //////////////////////////////// fonction controle de l'email     
+    /********** fonction controle de l'email ************/     
     btnSubmit[1].addEventListener('click', validateMail);                           
         function validateMail(e) {                                                   
             if (!regexEmail.test(emailInput.value)) {
@@ -85,7 +85,7 @@ function displayModal(photographerName) {
             }
         }
 
-    //////////////////////////////// fonction controle message
+    /************* fonction controle message **************/
     btnSubmit[1].addEventListener('click', validateMessage);                        
         function validateMessage(e) {                                                
             if (!regexMessage.test(messageInput.value)) {                          
@@ -99,7 +99,7 @@ function displayModal(photographerName) {
             
         }
         
-    ///////////////////////////////////////////////// on réaffiche les éléments quand le formulaire est valide ///////////////////    
+    /************************** on réaffiche les éléments quand le formulaire est valide *************************************/    
     btnSubmit[1].addEventListener('click', (e) => {                                  
            
         e.preventDefault();
@@ -110,7 +110,7 @@ function displayModal(photographerName) {
         })
     }
      
-//////////////////////////////////////////////////////////////////// fonction fermeture du formulaire au  ///////////////////////////////////////////////
+/************************************************ fonction fermeture du formulaire au ******************************************/
 //(dans photographer.html  ==>>  onkeydown="if (event.keyCode == 13) fermeture modale sur touche entrée )   
 function closeModal() {
 
@@ -123,12 +123,12 @@ function closeModal() {
     const lastNameInput      = document.getElementById("nom");
     const emailInput         = document.getElementById("email");
     const messageInput       = document.getElementById("message");
-    const errorFirst         = document.getElementById("error-first");                      // les balises d'erreur
+    const errorFirst         = document.getElementById("error-first");         // les balises d'erreur
     const errorLast          = document.getElementById("error-last");
     const errorMail          = document.getElementById("error-email");
     const errorMessage       = document.getElementById("error-message"); 
 
-        /////////////////////// fonction pour vider toute les erreurs et tous les champs
+        /************* fonction pour vider toute les erreurs et tous les champs ****************/
         function resetForm() {                                                      
             firstNameInput.value                = " ";
             lastNameInput.value                 = " ";
@@ -140,13 +140,13 @@ function closeModal() {
             errorMessage.style.display          = "none";
         }
 
-    modal.style.display                 = "none";                                           // on cache la modale
-    headerLogo[0].style.display         = "block";                                          // on affiche header avec logo
+    modal.style.display                 = "none";                              // on cache la modale
+    headerLogo[0].style.display         = "block";                             // on affiche header avec logo
     headerLogo[0].style.display         = "flex";
-    headerPhotographer[0].style.display = "block";                                          // on affiche le header du photographe 
+    headerPhotographer[0].style.display = "block";                             // on affiche le header du photographe 
     headerPhotographer[0].style.display = "flex"; 
-    filter[0].style.display             = "block";                                          // on affiche le filtre 
-    mediaSection.style.display          = "block";                                          // on affiche la section media
+    filter[0].style.display             = "block";                             // on affiche le filtre 
+    mediaSection.style.display          = "block";                             // on affiche la section media
     mediaSection.style.display          = "flex";
     resetForm();
     

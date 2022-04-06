@@ -98,6 +98,7 @@ p {
     object-fit: cover;
     height: 200px;
     width: 200px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 85%)
 }
 
 .photographer_section article img :focus {      

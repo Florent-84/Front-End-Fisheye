@@ -1,12 +1,12 @@
                              
- ////////////////////// factory qui affiche tous les photographes sur la page d'accueil et qui affiche chaque photographe individuellement /////////////////////////////////
+ /************************** factory qui affiche tous les photographes sur la page d'accueil et qui affiche chaque photographe individuellement **************************/
  
 function photographerFactory(photographer) {
   
   const { name, id, city, country, tagline, price, portrait } = photographer;
-  const picture        = (`assets/photographers/Photographers ID Photos/${portrait}`);
+  const picture = (`assets/photographers/Photographers ID Photos/${portrait}`);
 
-  /////////////////////////////////// affichage de tous les photographes sur la page d'accueil //////////
+  /*** affichage de tous les photographes sur la page d'accueil ***/
   function getUserCardDOM() {
     
     const article           = document.createElement( 'article' );
@@ -15,7 +15,8 @@ function photographerFactory(photographer) {
     const villePays         = document.createElement('p');
     const phrasePhotographe = document.createElement('p');
     const tarif             = document.createElement('p');
-    const lienPhotographe   = document.createElement('a');  
+    const lienPhotographe   = document.createElement('a');
+   
     img.setAttribute('src',picture);
     img.setAttribute('role', 'img' );
     img.setAttribute('alt','photo de ' + name);
@@ -37,9 +38,9 @@ function photographerFactory(photographer) {
     return (article);
   }
   
-  ///////////////////////////////////////// affichage du profil du photographe /////////////////////////
+  /**** affichage du profil du photographe ****/
   function getPhotographerHeaderDOM(){
- 
+   
     const photographHeader  = document.querySelector('.photograph-header');
     const h1                = document.createElement( 'h1' );
     const buttonContact     = document.querySelector('.contact_button');
@@ -69,7 +70,7 @@ function photographerFactory(photographer) {
     div.appendChild(phrasePhotographe);
     h1.appendChild(div);
 
-    ///// appel de la fonction modale du contactForm.js /////
+    /*** appel de la fonction modale du contactForm.js ****/
     buttonContact.addEventListener('click',(e) => {
       displayModal(name);                                                   
       e.preventDefault();  

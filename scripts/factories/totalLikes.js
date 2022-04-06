@@ -1,5 +1,5 @@
 
-///////////////////////////////////////////////////////// encart tarif journalier et total des likes du photographe /////////////////////////
+/**************************************** encart tarif journalier et total des likes du photographe ********************************/
 
 function getPhotographerMediaTotalLikes(totalLikes,photographer) {
 

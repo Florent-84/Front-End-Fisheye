@@ -34,7 +34,7 @@
 			<div class="modal" role="dialog" aria-label="formulaire de contact">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg"  tabindex="0" onclick="closeModal()" onkeydown="if (event.keyCode == 13) closeModal()"/>
+          <img src="assets/icons/close.svg"  tabindex="0" onclick="closeModal()" onkeydown="if (event.keyCode == 13) closeModal()" alt="close the form" aria-label="fermer le formulaire"/>
         </header>
 				<form>
 					<div>
@@ -51,23 +51,23 @@
 						<textarea id="message"></textarea>
               <small id="error-message">"Veuillez saisir votre message."</small>
 					</div>
-          <button class="contact_button" role="bouton d'envoi" aria-label="bouton envoyer pour valider le formulaire de contact">Envoyer</button>
+          <button class="contact_button" role="bouton d'envoi" aria-label="bouton de validation du formulaire de contact">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <!---------------------------------------------------- lightbox ------------------------------------------------------------>
     <div id="carroussel">
-      <img src="assets/icons/chevron-left-solid.svg"  class="chevron-left" alt="previous image">
-			<div id="carroussel-box" role="dialog" aria-label="image closeup view">   
-			</div>
+      <img src="assets/icons/chevron-left-solid.svg"  class="chevron-left" alt="previous image" aria-label="image précédente">
+			<div id="carroussel-box" role="dialog" aria-label="vue en gros plan de l'image"></div>
       <img src="assets/icons/close2.svg"  id="croix-image" alt="close dialog"/>
-      <img src="assets/icons/chevron-right-solid.svg"  class="chevron-right" alt="next image">  
+      <img src="assets/icons/chevron-right-solid.svg"  class="chevron-right" alt="next image" aria-label="image suivante">  
 		</div>
     <!-------------------------------------------------------------------------------------------------------------------------->
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/factories/totalLikes.js"></script>
     <script src="scripts/factories/lightbox.js"></script>
+    <script src="scripts/factories/sort.js"></script>
     <script src="scripts/pages/index.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
