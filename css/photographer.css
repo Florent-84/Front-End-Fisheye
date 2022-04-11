@@ -26,7 +26,7 @@
 }
 
 .photograph-header_img:focus {
-    outline: 3px solid #db8876; 
+    outline: 3px solid #000000; 
     border-radius: 50%;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .photograph-header h1:focus , .contact_button:focus, #name:focus, .image_photographer:focus, .video_photographer:focus {
-    outline: 3px solid #db8876; 
+    outline: 3px solid #000000; 
     border-radius: 5px;
 }
 
@@ -55,7 +55,7 @@
 }
 
 .contenair-villepaysphrase:focus {
-    outline: 3px solid #db8876; 
+    outline: 3px solid #000000; 
     border-radius: 5px;
 }
 
@@ -99,6 +99,7 @@ p .header-phrase_photographe {
 .contact_button:hover {
     background: #D3573C;
     transition: 0.3s;
+    box-shadow: 0 0 8px rgb(0, 0, 0);
 }
 
 .modal {
@@ -238,35 +239,40 @@ select {
     margin-top: 30px;   
 }
 
-.image_photographer, .video_photographer {
+.media_photographer {
     border-radius: 5px;
     width: 430px;
     height: 400px;
     object-fit: cover;
-    margin-bottom: 5px;
     box-shadow: 0 0 5px rgb(0 0 0 / 40%);
 }
 
-.image_photographer:hover, .video_photographer:hover {
-    box-shadow: 0 0 14px rgb(0 0 0 / 40%);
-    opacity: 0.7;
-    transition: ease-in-out 0.4s;
+.media_photographer:hover {
+    box-shadow: 0 0 14px rgb(0, 0, 0);
 }
+
+/* .media_photographer:focus {
+    outline: 3px solid #db8876; 
+    border-radius: 5px;
+} */
 
 .conteneur_title_likes {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 5px;
 }
 
 .like_numbers {
    display: flex;
+   justify-content: space-between;
+   width: 70px;
 }
 
-.like_numbers:focus {
+/* .like_numbers:focus {
     outline: 3px solid #db8876; 
     border-radius: 5px;
- }
+ } */
 
 .media_title {
     font-style: normal;
@@ -275,10 +281,10 @@ select {
     line-height: 31px;  
 }
 
-.media_title:focus {
+/* .media_title:focus {
     outline: 3px solid #db8876; 
     border-radius: 5px;
-}
+} */    
 
 /****************lightbox******************/
 
@@ -309,7 +315,7 @@ select {
 }
 
 .lightbox:focus {
-    outline: 3px solid #db8876; 
+    outline: 3px solid #000000; 
     border-radius: 5px;
 }
 
@@ -332,7 +338,7 @@ select {
 }
 
 #croix-image:focus {
-    outline: 3px solid #db8876; 
+    outline: 3px solid #000000; 
     border-radius: 5px;
 }
 
@@ -356,7 +362,7 @@ select {
 }
 
 .chevron-left:focus, .chevron-right:focus {
-    outline: 3px solid #db8876; 
+    outline: 3px solid #000000; 
     border-radius: 5px;
 }
 
@@ -366,27 +372,24 @@ select {
 }
 
 .title-lightbox:focus {
-    outline: 3px solid #db8876; 
+    outline: 3px solid #000000; 
     border-radius: 5px;
 }
 
 /****************encart totallikes******************/
 
-.counter_like-media {
+.counter_like-media_ {
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
     line-height: 31px; 
 }
 
-.heart_icone-media {
+
+.heart_icone-media_ {
     color: #911C1C;
     width: 22px;
     margin-left: 10px;
-}
-
-.heart_icone-media:hover {
-    cursor: pointer;
 }
 
 .counter_like {
@@ -416,7 +419,6 @@ select {
 .total_hearts {
     color: black;
     font-size: 24px;
-    margin-top: 5px
 }
 
 .total_hearts:focus {

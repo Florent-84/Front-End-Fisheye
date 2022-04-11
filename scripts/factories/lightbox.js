@@ -26,7 +26,6 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
     carroussel.style.display        ='flex';
     mediaSection.style.display      ='none';
 
-
     function closeLightbox() {
         carroussel.style.display      ='none';
         mediaSection.style.display    ='flex';
