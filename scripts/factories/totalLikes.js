@@ -10,19 +10,18 @@ function getPhotographerMediaTotalLikes(totalLikes,photographer) {
     const divAllHeart       = document.createElement('div');
     const imageAllHeart     = document.createElement('img');
     const divPrice          = document.createElement('div');
-    const p3                = document.createElement('p');
-
+    const h6                = document.createElement('h6');
     counter.className           = ('counter_like');        
     imageAllHeart.className     = ('black-heart');
     imageAllHeart.setAttribute    ('src',heartIconeBlack);
-    imageAllHeart.setAttribute    ('alt','likes');
+    imageAllHeart.setAttribute    ('alt','total-likes');
     divAllHeart.className       = ('all_heart_display');
     divPrice.className          = ('price'); 
     divPrice.textContent        = price + ('€'+ '/' +'jour');
     divPrice.setAttribute       = ('tabindex', '0');
-    p3.className                = ('total_hearts');
-    p3.textContent              = totalLikes;                
-    divAllHeart.appendChild(p3);
+    h6.className                = ('total_hearts');
+    h6.textContent              = totalLikes;                
+    divAllHeart.appendChild(h6);
     divAllHeart.appendChild(imageAllHeart);
     divAllHeart.appendChild(divPrice);
     mediaSection.appendChild(counter);
