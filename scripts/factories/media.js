@@ -3,7 +3,7 @@
 
 function mediaFactory(media, photographer,currentPhotographMedias) {
 
-    //sortFactory(media,currentPhotographMedias);  // fonction filtre de tri (à finir)    
+    const filter = document.getElementById('name');   // filtre "trier par" 
     const { id, video, likes, title, image } = media;
     const { name }          = photographer;
     const firstName         = name.slice(0, name.indexOf(' '));    
@@ -11,14 +11,13 @@ function mediaFactory(media, photographer,currentPhotographMedias) {
     const article           = document.createElement('article');
     const linkOpenMedia     = document.createElement('a');
     const divContenairTitle = document.createElement('div');
-    const titleMedia        = document.createElement('p');
+    const titleMedia        = document.createElement('h4');
     const divLike           = document.createElement('div');
-    const likesOfMediaId    = document.createElement('p'); 
+    const likesOfMediaId    = document.createElement('h5'); 
     const imageHeartId      = document.createElement('img');
-    const heartIcone        = (`../../assets/icons/heart-solid.svg`);
-    const heartIconeAfter   = (`../../assets/icons/heart-solid3.svg`);
+    const heartIcone        = (`../../assets/icons/heart-solid.svg`);  // coeur rouge
+    const heartIconeAfter   = (`../../assets/icons/heart-solid3.svg`); // coeur gris
     const allLikes          = document.getElementsByClassName('total_hearts');
-
     article.className           = ('article_media');
     divContenairTitle.className = ('conteneur_title_likes');
     titleMedia.className        = ('media_title');
@@ -33,29 +32,65 @@ function mediaFactory(media, photographer,currentPhotographMedias) {
     imageHeartId.setAttribute     ('alt','likes');
     divLike.className           = ('like_numbers');
     divLike.setAttribute          ('tabindex', '0');
-
     mediaSection.appendChild(article);
     article.appendChild(linkOpenMedia);
     divContenairTitle.appendChild(linkOpenMedia);
     divLike.appendChild(divContenairTitle);
     divContenairTitle.appendChild(titleMedia);
 
+
+    /************** filtre de tri *****************/
+    filter.addEventListener('change', function () {
+
+        if (filter.value == 'date') { 
+            const mediaDate = currentPhotographMedias.sort((a, b) => {
+                return new Date(a.date) < new Date(b.date) ? 1 : -1;
+            });
+            //console.log('date ordonnées: ' , mediaDate)
+            console.log(mediaDate)  
+        }
+    
+        if (filter.value == 'titre') {
+            const mediaTitle = currentPhotographMedias.sort((a, b) => {
+                return a.title > b.title ? 1 : -1;            
+            });
+            //console.log('titre ordonnées:  ' , mediaTitle)
+            console.log(mediaTitle)
+                         
+        }
+
+        if (filter.value == 'popularite') {
+            const mediaLike = currentPhotographMedias.sort((a, b) => {
+                return a.likes < b.likes ? 1 : -1;           
+            });
+            //console.log('like ordonnées:  ' , mediaLike)
+            console.log(mediaLike)    
+        }
+
+    });
+
     let likeMedia = false;
-    /***** fonction qui incrémente et décrémente, et change la couleur du coeur  ******/
+    /***** fonction qui incrémente et décrémente les likes, change la couleur du coeur et du titre  ******/
     function addSubLikeMedia() {
         likeMedia = !likeMedia;
 
         if (likeMedia) {
+
             likesOfMediaId.textContent++;
             allLikes[0].textContent++
             imageHeartId.setAttribute ('src', heartIconeAfter);
             imageHeartId.setAttribute ('alt','likes');
             likesOfMediaId.style.color = ('#585858');
+            titleMedia.style.color     = ('#585858');
+
         } else {
+
             likesOfMediaId.textContent--
             allLikes[0].textContent--
             imageHeartId.setAttribute('src', heartIcone);
             likesOfMediaId.style.color = ('#911C1C');
+            titleMedia.style.color     = ('#911C1C');
+
         }
     }
 
@@ -70,12 +105,12 @@ function mediaFactory(media, photographer,currentPhotographMedias) {
     }); 
   
     /***** ouverture lightbox  au click (lightbox.js) *****/
-    linkOpenMedia.addEventListener('click',() => {
+    linkOpenMedia.addEventListener('click', () => {
         getOpenLightBox(media,photographer,currentPhotographMedias);                                                    
     });
 
     /***** ouverture lightbox  touche entrée (lightbox.js) *****/
-    linkOpenMedia.addEventListener('keydown',(e) => {     
+    linkOpenMedia.addEventListener('keydown', (e) => {     
         if (e.key === 'Enter') {
             getOpenLightBox(media,photographer,currentPhotographMedias);  
         }                                                                                                        
@@ -95,26 +130,27 @@ function mediaFactory(media, photographer,currentPhotographMedias) {
             linkOpenMedia.appendChild(img);
             divContenairTitle.appendChild(divLike);
             divLike.appendChild(likesOfMediaId);
-            divLike.appendChild(imageHeartId);   
+            divLike.appendChild(imageHeartId);  
           
         } else {
 
             const videoPhotograph       = document.createElement('video');
             const sourceVideo           = document.createElement('source');
             videoPhotograph.className   = ('media_photographer');
-            videoPhotograph.setAttribute  ('tabindex', '0'); 
+            videoPhotograph.setAttribute  ('tabindex', '0');
+            videoPhotograph.setAttribute  ('type', 'video/mp4');  
             sourceVideo.setAttribute      ('src', `../../assets/photographers/${firstName}/${video}`);
-            sourceVideo.setAttribute      ('type', 'video/mp4');
-            sourceVideo.setAttribute      ('alt',title +',' +' ' + 'vidéo réalisée par'+' ' + name);       
+            sourceVideo.setAttribute      ('alt',title +',' +' ' + 'vidéo réalisée par'+' ' + name);     
             article.appendChild(linkOpenMedia);
             article.appendChild(divContenairTitle);
             linkOpenMedia.appendChild(videoPhotograph);
             videoPhotograph.appendChild(sourceVideo);   
             divContenairTitle.appendChild(divLike);
             divLike.appendChild(likesOfMediaId);
-            divLike.appendChild(imageHeartId);   
+            divLike.appendChild(imageHeartId);
 
         }
+
     }
-     return { getPhotographerMediaDOM }
+    return { getPhotographerMediaDOM }     
 }
