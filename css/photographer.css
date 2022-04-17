@@ -31,7 +31,7 @@
 }
 
 .photograph-header  h1 {
-    color: #D3573C;
+    color: #d3573c;
     font-style: normal;
     font-weight: normal;
     font-size: 64px;
@@ -61,14 +61,15 @@
 
 .header-phrase_photographe {
     color: #000000;
-    font-size: 14px;
+    font-size: 20px;
     margin-top: 12px;
 }
 
-.photograph-header  p {
+h2 {
+    color: #901C1C;
     font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 25px;
     line-height: 31px;
     width: 360px;
 }
@@ -98,6 +99,7 @@ p .header-phrase_photographe {
 
 .contact_button:hover {
     background: #D3573C;
+    color: #000000;
     transition: 0.3s;
     box-shadow: 0 0 8px rgb(0, 0, 0);
 }
@@ -105,16 +107,15 @@ p .header-phrase_photographe {
 .modal {
     border-radius: 5px;
     background-color: #db8876;
-    width: 50%;
+    box-shadow: -8px 8px 5px -1px rgb(0 0 0 / 60%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-wrap: nowrap;
     align-items: center;
     padding: 40px;
-    margin: auto;
     position: absolute;
-    top: 1.5%;
+    top: 5.0%;
     left: 25%;
     right: 25%;
 }
@@ -122,7 +123,8 @@ p .header-phrase_photographe {
 .modal header {
     justify-content: space-between;
     width: 100%;
-    margin-left: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
 }
 
 .modal header img {
@@ -139,9 +141,11 @@ p .header-phrase_photographe {
     border-radius: 5px;
 }
 
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
+.name-for-form {
+    font-size: 40px;
+    margin: 0px;
+    color: #000000;
+    font-weight: lighter;
 }
 
 .modal header h2:focus {
@@ -158,8 +162,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
-    margin-bottom: 15px;
+    font-size: 30px;
     margin-left: 0px;
 }
 
@@ -168,8 +171,10 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 0px;
-    margin-top: 30px;
+}
+
+form label {
+    margin: 0px;
 }
 
 form input {
@@ -189,12 +194,13 @@ form textarea {
 }
 
 #error-first, #error-last, #error-email, #error-message {
-    font-size: 19px;
+    font-size: 17px;
     color: #660000;
     margin-top: 3px;
     margin-bottom: 5px;
     display: none;
-  }
+    font-weight: bold;
+}
 
 form .contact_button:focus {
     outline: 3px solid #000000; 
@@ -223,6 +229,15 @@ select {
     padding: 10px;
     cursor: pointer; 
 }
+
+select:hover {
+    background: #D3573C;
+    color: #000000;
+    transition: 0.3s;
+    box-shadow: 0 0 8px rgb(0, 0, 0);
+    
+}
+
 /********************** section des medias" *********************/
 #media_section {
     display: flex;
@@ -236,7 +251,7 @@ select {
 }
 
 .article_media {
-    margin-top: 30px;   
+    margin-top: 20px;   
 }
 
 .media_photographer {
@@ -244,47 +259,45 @@ select {
     width: 430px;
     height: 400px;
     object-fit: cover;
-    box-shadow: 0 0 5px rgb(0 0 0 / 40%);
+    box-shadow: -5px 7px 5px -2px rgb(0 0 0 / 60%);
 }
 
 .media_photographer:hover {
     box-shadow: 0 0 14px rgb(0, 0, 0);
 }
 
-/* .media_photographer:focus {
-    outline: 3px solid #db8876; 
-    border-radius: 5px;
-} */
-
 .conteneur_title_likes {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 5px;
+    height: 35px;
 }
 
 .like_numbers {
    display: flex;
    justify-content: space-between;
    width: 70px;
+   height: 35px;
 }
 
-/* .like_numbers:focus {
-    outline: 3px solid #db8876; 
-    border-radius: 5px;
- } */
-
-.media_title {
+h4 {
     font-style: normal;
-    font-weight: normal;
+    font-weight: bold;
     font-size: 24px;
-    line-height: 31px;  
+    line-height: 31px; 
+    color:rgb(145, 28, 28); 
 }
 
-/* .media_title:focus {
-    outline: 3px solid #db8876; 
-    border-radius: 5px;
-} */    
+h5 {
+    margin: 0px;
+    align-self: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px; 
+    color:rgb(145, 28, 28); 
+}
 
 /****************lightbox******************/
 
@@ -368,6 +381,7 @@ select {
 
 .title-lightbox {
     font-size: 24px;
+    font-weight: bold;
     color: #901C1C;
 }
 
@@ -419,6 +433,9 @@ select {
 .total_hearts {
     color: black;
     font-size: 24px;
+    color: black;
+    font-size: 25px;
+    margin: 0px;
 }
 
 .total_hearts:focus {
@@ -428,6 +445,8 @@ select {
 
 .all_heart_display {
     display: flex;
+    height: 50px;
+    align-items: center;
 }
 
 .black-heart {
@@ -439,5 +458,6 @@ select {
 .price {
     font-size: 24px;
     color: #000000;
+    font-weight: bold;
 }
 
