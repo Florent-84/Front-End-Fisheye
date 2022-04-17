@@ -1,4 +1,4 @@
-                             
+                          
  /************************** factory qui affiche tous les photographes sur la page d'accueil et qui affiche chaque photographe individuellement **************************/
  
 function photographerFactory(photographer) {
@@ -12,7 +12,7 @@ function photographerFactory(photographer) {
     const article           = document.createElement( 'article' );
     const img               = document.createElement( 'img' );
     const h2                = document.createElement( 'h2' );
-    const villePays         = document.createElement('p');
+    const villePays         = document.createElement('h3');
     const phrasePhotographe = document.createElement('p');
     const tarif             = document.createElement('p');
     const lienPhotographe   = document.createElement('a');
@@ -45,8 +45,8 @@ function photographerFactory(photographer) {
     const h1                = document.createElement( 'h1' );
     const buttonContact     = document.querySelector('.contact_button');
     const imgProfil         = document.createElement('img');
-    const villePays         = document.createElement('p');
-    const phrasePhotographe = document.createElement('p');
+    const villePays         = document.createElement('h2');
+    const phrasePhotographe = document.createElement('h3');
     const div               = document.createElement('div');
     div.className                 = ('contenair-villepaysphrase');
     div.setAttribute                ('tabindex', '0');
@@ -58,8 +58,8 @@ function photographerFactory(photographer) {
     imgProfil.setAttribute          ('tabindex', '0');
     h1.setAttribute('tabindex', '0');
     imgProfil.setAttribute('src', picture);
-    imgProfil.setAttribute('role', 'img' );
-    imgProfil.setAttribute('alt',picture);
+    imgProfil.setAttribute('role', 'img');
+    imgProfil.setAttribute('alt','photo de ' + name);
     photographHeader.appendChild(h1);
     photographHeader.appendChild(div);
     photographHeader.appendChild(villePays);
