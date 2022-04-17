@@ -54,7 +54,7 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
                 if (e.key === 'Enter') {
                     closeLightbox();
                 }
-            })
+            });
    
         } else {
             /** video **/
@@ -73,7 +73,7 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
                 if (e.key === 'Enter') {
                     closeLightbox();
                 }
-            })     
+            });     
         }
     }
 
@@ -113,8 +113,7 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
             }
             removeLightboxContent(previousIndexOfMedia);
             renderLightboxMedia(indexOfMedia);
-        }
-                
+        }            
     })
 
     /********* défilement à gauche au clic ********/
@@ -127,7 +126,6 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
         removeLightboxContent(previousIndexOfMedia);
         renderLightboxMedia(indexOfMedia);                     
     })
-
 
     /** défilement à gauche avec la flèche gauche du clavier **/
     chevronLeft[0].addEventListener('keydown',(e) => { 
