@@ -39,7 +39,7 @@ h1:focus {
     border-radius: 5px;    
 }
 
-/*ajout de style pour lien qui comprend l'image et le h2 avec bordure de couleur pour le focus*/
+/**** lien qui comprend l'image et le h2 *****/
 a {
     display: flex;
     flex-direction: column;
@@ -52,21 +52,27 @@ a:focus {
     border-radius: 5px;             
 }
 
-p {
+/********************************************/
+
+h3 {
     color: #901C1C;
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 3px;
     font-size: 23px;
 }
 
 .phrase_photographe {
     color: #000000;
     font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 .tarif_photographe {
     color: #757575;
     font-size: 14px;
+    margin-top: 0px;
+    font-weight: bold;
 }
 
 .photographer_section {
@@ -89,7 +95,8 @@ p {
     color: #D3573C;
     font-size: 36px;
     font-weight: normal;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .photographer_section article img {
