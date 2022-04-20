@@ -3,7 +3,6 @@
 
 function mediaFactory(media, photographer,currentPhotographMedias) {
 
-    const filter = document.getElementById('name');   // filtre "trier par" 
     const { id, video, likes, title, image } = media;
     const { name }          = photographer;
     const firstName         = name.slice(0, name.indexOf(' '));    
@@ -37,37 +36,6 @@ function mediaFactory(media, photographer,currentPhotographMedias) {
     divContenairTitle.appendChild(linkOpenMedia);
     divLike.appendChild(divContenairTitle);
     divContenairTitle.appendChild(titleMedia);
-
-
-    /************** filtre de tri *****************/
-    filter.addEventListener('change', function () {
-
-        if (filter.value == 'date') { 
-            const mediaDate = currentPhotographMedias.sort((a, b) => {
-                return new Date(a.date) < new Date(b.date) ? 1 : -1;
-            });
-            //console.log('date ordonnées: ' , mediaDate)
-            console.log(mediaDate)  
-        }
-    
-        if (filter.value == 'titre') {
-            const mediaTitle = currentPhotographMedias.sort((a, b) => {
-                return a.title > b.title ? 1 : -1;            
-            });
-            //console.log('titre ordonnées:  ' , mediaTitle)
-            console.log(mediaTitle)
-                         
-        }
-
-        if (filter.value == 'popularite') {
-            const mediaLike = currentPhotographMedias.sort((a, b) => {
-                return a.likes < b.likes ? 1 : -1;           
-            });
-            //console.log('like ordonnées:  ' , mediaLike)
-            console.log(mediaLike)    
-        }
-
-    });
 
     let likeMedia = false;
     /***** fonction qui incrémente et décrémente les likes, change la couleur du coeur et du titre  ******/
