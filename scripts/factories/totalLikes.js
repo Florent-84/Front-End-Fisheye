@@ -6,8 +6,8 @@ function getPhotographerMediaTotalLikes(totalLikes,photographer) {
     const { price }         = photographer;      
     const heartIconeBlack   = (`../../assets/icons/heart-solid2.svg`);
     const mediaSection      = document.getElementById('media_section');    
-    const counter           = document.createElement('button');
-    const divAllHeart       = document.createElement('div');
+    const counter           = document.createElement('div');
+    const divAllHeart       = document.createElement('button');
     const imageAllHeart     = document.createElement('img');
     const divPrice          = document.createElement('div');
     const h6                = document.createElement('h6');
@@ -20,7 +20,7 @@ function getPhotographerMediaTotalLikes(totalLikes,photographer) {
     divPrice.textContent        = price + ('€'+ '/' +'jour');
     divPrice.setAttribute       = ('tabindex', '0');
     h6.className                = ('total_hearts');
-    h6.textContent              = totalLikes;                
+    h6.textContent              = totalLikes;            
     divAllHeart.appendChild(h6);
     divAllHeart.appendChild(imageAllHeart);
     divAllHeart.appendChild(divPrice);
