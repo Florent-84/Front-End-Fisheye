@@ -4,10 +4,10 @@
     justify-content: flex-start;
 }
 
-
 #contact_modal {
     display: none;
 }
+
 /************************** le bandeau du photographe *********************/
 .photograph-header {
     background-color: #FAFAFA;
@@ -40,21 +40,7 @@
     margin-bottom: 50px;
 }
 
-.photograph-header h1:focus , .contact_button:focus, #name:focus, .image_photographer:focus, .video_photographer:focus {
-    outline: 3px solid #000000; 
-    border-radius: 5px;
-}
-
-.button:focus {
-    outline: 3px solid #db8876; 
-    border-radius: 5px;
-}
-    
-.contenair-villepaysphrase {
-    height: 66px;
-}
-
-.contenair-villepaysphrase:focus {
+.photograph-header h1:focus , .contact_button:focus, #name:focus, .image_photographer:focus, .video_photographer:focus, .contenair-villepaysphrase:focus {
     outline: 3px solid #000000; 
     border-radius: 5px;
 }
@@ -81,8 +67,7 @@ p .header-phrase_photographe {
     line-height: 23px;
 }
 
-/************************formulaire****************************/
-
+/************************ formulaire ****************************/
 .contact_button {
     margin-top: 20px;
     font-size: 20px;
@@ -136,7 +121,7 @@ p .header-phrase_photographe {
     transition: 0.3s;
 }
 
-.modal header img:focus {
+.modal header img:focus, .modal header h2:focus {
     outline: 3px solid #000000;
     border-radius: 5px;
 }
@@ -146,11 +131,6 @@ p .header-phrase_photographe {
     margin: 0px;
     color: #000000;
     font-weight: lighter;
-}
-
-.modal header h2:focus {
-    outline: 3px solid #000000;
-    border-radius: 5px;
 }
 
 form {
@@ -163,18 +143,11 @@ form {
 form label {
     color: #312E2E;
     font-size: 30px;
-    margin-left: 0px;
+    margin: 0px;
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
     width: 100%;
-    align-items: self-start;
-}
-
-form label {
-    margin: 0px;
 }
 
 form input {
@@ -234,8 +207,7 @@ select:hover {
     background: #D3573C;
     color: #000000;
     transition: 0.3s;
-    box-shadow: 0 0 8px rgb(0, 0, 0);
-    
+    box-shadow: 0 0 8px rgb(0, 0, 0);    
 }
 
 /********************** section des medias" *********************/
@@ -300,7 +272,6 @@ h5 {
 }
 
 /****************lightbox******************/
-
 #carroussel {
     display: flex;
     justify-content: center;
@@ -327,11 +298,6 @@ h5 {
     box-shadow: 0 0 8px rgb(0 0 0);
 }
 
-.lightbox:focus {
-    outline: 3px solid #000000; 
-    border-radius: 5px;
-}
-
 .close_carroussel {
     display: flex;
     width: 42px;
@@ -348,11 +314,6 @@ h5 {
 
 #croix-image:hover {
     opacity: 0.5;
-}
-
-#croix-image:focus {
-    outline: 3px solid #000000; 
-    border-radius: 5px;
 }
 
 .chevron-left {
@@ -374,7 +335,7 @@ h5 {
     transition: .3s;
 }
 
-.chevron-left:focus, .chevron-right:focus {
+.chevron-left:focus, .chevron-right:focus, .lightbox:focus, #croix-image:focus, .title-lightbox:focus {
     outline: 3px solid #000000; 
     border-radius: 5px;
 }
@@ -385,27 +346,7 @@ h5 {
     color: #901C1C;
 }
 
-.title-lightbox:focus {
-    outline: 3px solid #000000; 
-    border-radius: 5px;
-}
-
 /****************encart totallikes******************/
-
-.counter_like-media_ {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 31px; 
-}
-
-
-.heart_icone-media_ {
-    color: #911C1C;
-    width: 22px;
-    margin-left: 10px;
-}
-
 .counter_like {
     display: flex;
     justify-content: space-around;
@@ -421,11 +362,6 @@ h5 {
     border: none;
 }
 
-.counter_like:focus {
-    outline: 3px solid #000000; 
-    border-radius: 5px; 
-}
-
 .all_like {
     color: black;
 }
@@ -438,15 +374,17 @@ h5 {
     margin: 0px;
 }
 
-.total_hearts:focus {
-    outline: 3px solid #000000; 
-    border-radius: 5px;
-}
-
 .all_heart_display {
     display: flex;
-    height: 50px;
     align-items: center;
+    background-color: #db8876;
+    border: none;
+    padding: 0;
+}
+
+.all_heart_display:focus {
+    outline: 3px solid #000000; 
+    border-radius: 5px; 
 }
 
 .black-heart {
@@ -460,4 +398,3 @@ h5 {
     color: #000000;
     font-weight: bold;
 }
-
