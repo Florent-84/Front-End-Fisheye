@@ -1,0 +1,24 @@
+{
+  "name": "front-end-fisheye",
+  "version": "1.0.0",
+  "description": "I. Scénario du projet :<br>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --max-warnings=0 ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Florent-84/Front-End-Fisheye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Florent-84/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/Florent-84/Front-End-Fisheye#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.14.0"
+  }
+}
