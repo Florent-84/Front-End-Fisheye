@@ -9,16 +9,16 @@
   </head>
   <body>
     <header id="logo-photograph-header">
-      <!------------------------------------------------- retour page d'accueil sur le logo ---------------------------------------->
+      <!-- retour page d'accueil sur le logo -->
       <a href="index.html" tabindex="0">
         <img src="assets/images/logo.png" alt="Fisheye Home page" aria-label="retour vers la page d'accueil" class="logo"/>
       </a>
     </header>
-    <main id="main" role="main" aria-label="fiche du photographe">
+    <main id="main" aria-label="fiche du photographe">
       <div class="photograph-header">
         <button class="contact_button" aria-label="bouton d'ouverture du formulaire" tabindex="0">Contactez-moi</button>
       </div>
-      <!-------------------------------------------------- les filtres -------------------------------------------------------------->
+      <!-- les filtres -->
     </main>
     <label for="name" aria-label="filtre">Trier par
       <select name="Trier par" id="name" aria-label="tri des médias par catégories" tabindex="0">
@@ -27,42 +27,42 @@
         <option value="titre">Titre</option>
       </select>
     </label>
-    <!---------------------------------------------------- section media ------------------------------------------------------------>
+    <!-- section media -->
     <section id="media_section" aria-label="section de tous les medias du photographe"></section>
-    <!---------------------------------------------------- le formulaire de contact ------------------------------------------------->
+    <!-- le formulaire de contact -->
     <div id="contact_modal">
       <div class="modal" role="dialog" aria-label="formulaire de contact">
         <header>
-          <h1 class="name-for-form"></h1>
+          <h1 class="name-for-form">Contactez moi</h1>
           <img src="assets/icons/close.svg" id="close-form-img" tabindex="0" alt="close the form" aria-label="fermerture du formulaire"/>
         </header>
         <form>
           <div>
-            <label for="prenom" aria-labelledby="Prenom">Prénom</label>
+            <label for="prenom" aria-label="Prenom">Prénom</label>
             <input type="text" id="prenom" />
             <small id="error-first">"Veuillez entrer 2 caractères ou plus pour le champ du prénom."</small>
-            <label for="nom" aria-labelledby="Nom">Nom</label>
+            <label for="nom" aria-label="Nom">Nom</label>
             <input type="text" id="nom"/>
             <small id="error-last">"Veuillez entrer 2 caractères ou plus pour le champ du nom."</small>
-            <label for="email" aria-labelledby="Email">Email</label>
+            <label for="email" aria-label="Email">Email</label>
             <input type="text" id="email" />
             <small id="error-email">"Veuillez entrer un email valide."</small>
-            <label for="message" aria-labelledby="Message">Votre message</label>
+            <label for="message" aria-label="Message">Votre message</label>
             <textarea id="message"></textarea>
             <small id="error-message">"Veuillez saisir votre message."</small>
           </div>
-          <button class="contact_button" role="bouton d'envoi" aria-label="bouton de validation du formulaire de contact">Envoyer</button>
+          <button class="contact_button" aria-label="bouton de validation du formulaire de contact">Envoyer</button>
         </form>
       </div>
     </div>
-    <!---------------------------------------------------- lightbox ------------------------------------------------------------------>
+    <!-- lightbox -->
     <div id="carroussel">
       <img src="assets/icons/chevron-left-solid.svg" class="chevron-left" alt="previous image" aria-label="voir le contenu précédent"/>
       <div id="carroussel-box" role="dialog" aria-label="vue en gros plan des médias du photographe"></div>
       <img src="assets/icons/close2.svg" id="croix-image" alt="close dialog" aria-label="fermeture de la lightbox"/>
       <img src="assets/icons/chevron-right-solid.svg" class="chevron-right" alt="next image" aria-label="voir le contenu suivant"/>
     </div>
-    <!---------------------------------------------------- fichiers script ------------------------------------------------------------>
+    <!-- fichiers script -->
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="scripts/factories/totalLikes.js"></script>
