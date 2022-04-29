@@ -238,6 +238,11 @@ select:hover {
     box-shadow: 0 0 14px rgb(0, 0, 0);
 }
 
+.media_photographer:focus, .media_title:focus, .like_numbers:focus {
+    outline: 3px solid #000000;
+    border-radius: 5px;
+}
+
 .conteneur_title_likes {
     display: flex;
     justify-content: space-between;
