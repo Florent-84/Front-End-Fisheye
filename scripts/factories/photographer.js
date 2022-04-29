@@ -1,6 +1,7 @@
                           
- /************************** factory qui affiche tous les photographes sur la page d'accueil et qui affiche chaque photographe individuellement **************************/
+/************************** factory qui affiche tous les photographes sur la page d'accueil et qui affiche chaque photographe individuellement **************************/
  
+// eslint-disable-next-line no-unused-vars
 function photographerFactory(photographer) {
   
   const { name, id, city, country, tagline, price, portrait } = photographer;
@@ -72,6 +73,7 @@ function photographerFactory(photographer) {
 
     /*** appel de la fonction modale du contactForm.js ****/
     buttonContact.addEventListener('click',(e) => {
+      // eslint-disable-next-line no-undef
       displayModal(name);                                                   
       e.preventDefault();  
     });
@@ -79,5 +81,6 @@ function photographerFactory(photographer) {
     return (photographHeader);
   }
   
+  // eslint-disable-next-line no-undef
   return { getUserCardDOM, getPhotographerHeaderDOM, getPhotographerMediaTotalLikes }
 }
