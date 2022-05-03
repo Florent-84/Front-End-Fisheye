@@ -3,7 +3,7 @@
  
 // eslint-disable-next-line no-unused-vars
 function getOpenLightBox(media,photographer,currentPhotographMedias) {
-     
+   
   const { name }              = photographer;
   const firstName             = name.slice(0, name.indexOf(' ')); 
   const mediaSection          = document.getElementById('media_section');
@@ -18,7 +18,7 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
   imgPhotographer.className   = ('lightbox');
   videoLightbox.className     = ('lightbox');
   titreLightbox.className     = ('title-lightbox');
-  titreLightbox.setAttribute  ('tabindex','0');
+  titreLightbox.setAttribute    ('tabindex','0');
   imgcroix.setAttribute         ('tabindex','0');
   chevronLeft.style.display   = 'block';
   chevronLeft.setAttribute      ('tabindex', '0');
@@ -43,6 +43,7 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
       /** photo **/    
       imgPhotographer.setAttribute('tabindex', '0');
       imgPhotographer.setAttribute('src',`../../assets/photographers/${firstName}/${currentPhotographMedias[indexOfMedia].image}`);
+      imgPhotographer.setAttribute('alt', currentPhotographMedias[indexOfMedia].description);
       titreLightbox.textContent   = currentPhotographMedias[indexOfMedia].title;
       carrousselBox.appendChild(imgPhotographer);
       carrousselBox.appendChild(titreLightbox);
@@ -61,6 +62,7 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
     /** video **/
       videoLightbox.setAttribute('tabindex', '0');
       videoLightbox.setAttribute('src',`../../assets/photographers/${firstName}/${currentPhotographMedias[indexOfMedia].video}`);
+      videoLightbox.setAttribute('alt', currentPhotographMedias[indexOfMedia].description);
       videoLightbox.controls    = 'true';
       titreLightbox.textContent = currentPhotographMedias[indexOfMedia].title;
       carrousselBox.appendChild(videoLightbox);
