@@ -106,10 +106,10 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
     renderLightboxMedia(indexOfMedia);
   });
 
-  /** défilement à droite avec la flèche droite du clavier **/
+  /** défilement à droite touche entrée du clavier **/
   chevronRight.addEventListener('keydown',(e) => {  
     const previousIndexOfMedia = indexOfMedia
-    if (e.keyCode === '39') {
+    if (e.key === 'Enter') {
       indexOfMedia++;
       if (indexOfMedia === currentPhotographMedias.length) {
         indexOfMedia = 0;
@@ -130,10 +130,10 @@ function getOpenLightBox(media,photographer,currentPhotographMedias) {
     renderLightboxMedia(indexOfMedia);                     
   });
 
-  /** défilement à gauche avec la flèche gauche du clavier **/
+  /** défilement à gauche touche entrée du clavier **/
   chevronLeft.addEventListener('keydown',(e) => { 
     const previousIndexOfMedia = indexOfMedia
-    if (e.keyCode === '37') {
+    if (e.key === 'Enter') {
 
       indexOfMedia--;
       if (indexOfMedia < 0) {
