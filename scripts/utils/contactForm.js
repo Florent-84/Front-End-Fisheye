@@ -22,7 +22,7 @@ function displayModal(photographer) {
   const imgCloseModal      = document.getElementById('close-form-img');              // croix de la fermeture modal    
   const regexFirstLast     = /^[A-Za-z]{2,30}$/;                                     // les regex  
   const regexEmail         = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/; 
-  const regexMessage       = /^[a-zA-Z0-9-_.]{2,30}$/;                                  
+  const regexMessage       = /^[a-zA-Z0-9-_.\s]{2,30}$/;                                  
 
   modal.style.display                 = "block";                           // affiche la modale
   headerLogo.style.display            = "none";                            // cache le header avec logo
@@ -100,8 +100,9 @@ function displayModal(photographer) {
 
   /************** controle du  message ***************/
   btnSubmit.addEventListener('click', validateMessage);                        
-  function validateMessage() {                                                
-    if (!regexMessage.test(messageInput.value)) {                          
+  function validateMessage(e) {                                                
+    if (!regexMessage.test(messageInput.value)) {
+      e.preventDefault();                          
       errorMessage.style.display = "block";               
     } else {
       errorMessage.style.display = "none";
