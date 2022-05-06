@@ -40,7 +40,7 @@
     margin-bottom: 50px;
 }
 
-.photograph-header h1:focus , .contact_button:focus, #name:focus, .image_photographer:focus, .video_photographer:focus, .contenair-villepaysphrase:focus {
+.photograph-header h1:focus , #name:focus, .image_photographer:focus, .video_photographer:focus, .contenair-villepaysphrase:focus {
     outline: 3px solid #000000; 
     border-radius: 5px;
 }
@@ -87,6 +87,13 @@ p .header-phrase_photographe {
     color: #000000;
     transition: 0.3s;
     box-shadow: 0 0 8px rgb(0, 0, 0);
+}
+
+.contact_button:focus {
+    outline: 3px solid #000000; 
+    border-radius: 5px;
+    background: #D3573C;
+    color: #000000;
 }
 
 .modal {
@@ -203,11 +210,22 @@ select {
     cursor: pointer; 
 }
 
+option {
+   font-weight: bold;
+}
+
 select:hover {
     background: #D3573C;
     color: #000000;
     transition: 0.3s;
     box-shadow: 0 0 8px rgb(0, 0, 0);    
+}
+
+select:focus {
+    outline: 3px solid #000000; 
+    border-radius: 5px;
+    background: #D3573C;
+    color: #000000;
 }
 
 /********************** section des medias" *********************/
